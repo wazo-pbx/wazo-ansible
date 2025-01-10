@@ -17,6 +17,15 @@
   ansible.builtin.include_role:
     name: geerlingguy.postgresql
   vars:
+    postgresql_version: 15
+    postgresql_data_dir: "/var/lib/postgresql/15/main"
+    postgresql_bin_path: "/usr/lib/postgresql/15/bin"
+    postgresql_config_path: "/etc/postgresql/15/main"
+    postgresql_daemon: "postgresql@15-main"
+    postgresql_packages:
+      - postgresql-15
+      - postgresql-contrib
+      - libpq-dev
     postgresql_global_config_options:
       - option: port
         value: "{{ postgresql_port | default(5432) }}"
@@ -26,6 +35,15 @@
   ansible.builtin.include_role:
     name: geerlingguy.postgresql
   vars:
+    postgresql_version: 15
+    postgresql_data_dir: "/var/lib/postgresql/15/main"
+    postgresql_bin_path: "/usr/lib/postgresql/15/bin"
+    postgresql_config_path: "/etc/postgresql/15/main"
+    postgresql_daemon: "postgresql@15-main"
+    postgresql_packages:
+      - postgresql-15
+      - postgresql-contrib
+      - libpq-dev
     postgresql_users:
       - name: postgres
         password: "{{ postgresql_superuser_password }}"
@@ -46,6 +64,15 @@
   ansible.builtin.include_role:
     name: geerlingguy.postgresql
   vars:
+    postgresql_version: 15
+    postgresql_data_dir: "/var/lib/postgresql/15/main"
+    postgresql_bin_path: "/usr/lib/postgresql/15/bin"
+    postgresql_config_path: "/etc/postgresql/15/main"
+    postgresql_daemon: "postgresql@15-main"
+    postgresql_packages:
+      - postgresql-15
+      - postgresql-contrib
+      - libpq-dev
     postgresql_hba_entries: >
        {{ default_hba + external_hba
           if postgresql_listen_addresses is defined and postgresql_listen_addresses != '127.0.0.1'
